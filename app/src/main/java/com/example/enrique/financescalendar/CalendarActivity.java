@@ -25,6 +25,7 @@ public  class CalendarActivity extends AppCompatActivity {
     static ArrayList<Finanzas> finanzas = new ArrayList<>();
     BaseDeDatos bd;
 
+    //a
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
