@@ -2,6 +2,7 @@ package com.example.enrique.financescalendar;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,7 +17,6 @@ public class CalendarFragment extends DialogFragment
 
     public Calendar c;
     public int year, month, day;
-    public TextView dateTextView;
 
 
     @Override
@@ -43,11 +43,9 @@ public class CalendarFragment extends DialogFragment
     }
 
     private void setDate() {
-        LayoutInflater li = LayoutInflater.from(getActivity());
-        View showView = li.inflate(R.layout.activity_calendar, null);
-        dateTextView = (TextView) showView.findViewById(R.id.text_view_date);
+        CalendarActivity calendarActivity= (CalendarActivity) getActivity();
+        calendarActivity.dateTextView.setText(month + " / " + day + " / " + year);
 
-        dateTextView.setText(month + " / " + day + " / " + year);
     }
 
 }

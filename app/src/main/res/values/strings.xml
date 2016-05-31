@@ -3,6 +3,9 @@
     <string name="title_activity_calendar">CalendarActivity</string>
     <string name="action_settings">Settings</string>
     <string name="show_calendar">Ingreso</string>
-    <string name="quantity">How much was it today?</string>
-    <string name="description">Additional information...</string>
+    <string name="quantity">How much was it today? max:999€</string>
+    <string name="description">Additional information &#8230;</string>
+    <string name="btn_change_date">Change Date</string>
+    <string name="btn_save_data">Save</string>
+    <string name="btn_cancel">Cancel</string>
 </resources>
