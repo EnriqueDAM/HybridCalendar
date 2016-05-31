@@ -10,15 +10,21 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
-public  class CalendarActivity extends AppCompatActivity {
+
+public class CalendarActivity extends AppCompatActivity {
 
     private static final String SPLIT_TOKEN = "/";
+    public Calendar c;
+    public SimpleDateFormat sdf;
     public ImageView calImageView;
     public TextView dateTextView;
     public Button btnChangeDate;
     public EditText moneyEditText, descEditText;
     public int year, month, day;
+    public boolean flag = true;
 
 
     @Override
@@ -31,25 +37,33 @@ public  class CalendarActivity extends AppCompatActivity {
         btnChangeDate = (Button) findViewById(R.id.btn_change_date);
         moneyEditText = (EditText) findViewById(R.id.edit_text_add_money);
         descEditText = (EditText) findViewById(R.id.edit_text_description);
+
+        if (flag)
+            getCurrentDate();
+    }
+
+    public void getCurrentDate() {
+        c = Calendar.getInstance();
+
+        sdf = new SimpleDateFormat("MM / dd / yyyy");
+        String newDate = sdf.format(c.getTime());
+        dateTextView.setText(newDate);
+
+        flag = false;
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
     }
 
     public void sendDataToDB() {
         String chain = (String) dateTextView.getText();
-        String [] splitter = chain.split(SPLIT_TOKEN);
+        String[] splitter = chain.split(SPLIT_TOKEN);
 
-        month = Integer.parseInt(splitter [0]);
+        month = Integer.parseInt(splitter[0]);
         day = Integer.parseInt(splitter[1]);
         year = Integer.parseInt(splitter[2]);
-
-        
-
-
     }
 
     public void onBackPressed() {
