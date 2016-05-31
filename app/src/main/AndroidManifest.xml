@@ -21,6 +21,9 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".CalendarActivity" />
         <activity android:name=".CalendarFragment"></activity>
+        <activity android:name=".Preferencias" />
+        <activity android:name=".ConsultarGastos" />
+        <activity android:name=".ConsultarGastoMes" />
     </application>
 
 </manifest>

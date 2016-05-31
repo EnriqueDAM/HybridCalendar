@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">FinancesCalendar</string>
+    <string name="description">Additional information...</string>
     <string name="title_activity_calendar">CalendarActivity</string>
     <string name="action_settings">Settings</string>
-    <string name="show_calendar">Ingreso</string>
+    <string name="show_calendar">Show Calendar</string>
     <string name="quantity">How much was it today?</string>
-    <string name="description">Additional information...</string>
+    <string name="titleMain">Menu</string>
+    <string name="consultaMain">Consultar gastos</string>
+    <string name="ingresoMain">Ingresar gasto</string>
+    <string name="configuracionMain">Configuración</string>
 </resources>

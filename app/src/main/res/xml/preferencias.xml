@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+
+        android:key="cantidadLimite"
+
+        android:title="Aviso límite"
+
+        android:summary="Indica el límite menual en € para avisar una vez superado este límite."
+
+        android:inputType="number"
+
+        android:defaultValue="50" />
+
+</PreferenceScreen>
