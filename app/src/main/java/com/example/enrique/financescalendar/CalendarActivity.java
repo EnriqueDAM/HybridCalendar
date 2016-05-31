@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 
 public  class CalendarActivity extends AppCompatActivity {
@@ -19,7 +22,8 @@ public  class CalendarActivity extends AppCompatActivity {
     public Button btnChangeDate;
     public EditText moneyEditText, descEditText;
     public int year, month, day;
-
+    static ArrayList<Finanzas> finanzas = new ArrayList<>();
+    BaseDeDatos bd;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,12 +35,12 @@ public  class CalendarActivity extends AppCompatActivity {
         btnChangeDate = (Button) findViewById(R.id.btn_change_date);
         moneyEditText = (EditText) findViewById(R.id.edit_text_add_money);
         descEditText = (EditText) findViewById(R.id.edit_text_description);
+        bd=new BaseDeDatos(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
     }
 
     public void sendDataToDB() {
@@ -47,8 +51,11 @@ public  class CalendarActivity extends AppCompatActivity {
         day = Integer.parseInt(splitter[1]);
         year = Integer.parseInt(splitter[2]);
 
-        
 
+        Finanzas finan=new Finanzas(Integer.parseInt(moneyEditText.getText().toString()),day,month,year,descEditText.getText().toString());
+        finanzas.add(finan);
+
+        bd.guardarBaseDatos();
 
     }
 
