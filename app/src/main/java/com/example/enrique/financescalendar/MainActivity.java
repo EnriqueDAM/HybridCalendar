@@ -26,6 +26,9 @@ public  class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // codigo para llamar a la ventana
+                Intent intent = new Intent(MainActivity.this, CalendarActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
             }
         });
         consultarGastos.setOnClickListener(new View.OnClickListener() {
@@ -33,6 +36,7 @@ public  class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // codigo para llamar a la ventana
                 Intent i = new Intent(acti, ConsultarGastos.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);
             }
         });
@@ -41,6 +45,7 @@ public  class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // codigo para llamar a la ventana
                 Intent i = new Intent(acti, Preferencias.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);
             }
         });

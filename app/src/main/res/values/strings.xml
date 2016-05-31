@@ -8,4 +8,8 @@
     <string name="btn_change_date">Change Date</string>
     <string name="btn_save_data">Save</string>
     <string name="btn_cancel">Cancel</string>
+    <string name="titleMain">Menu</string>
+    <string name="consultaMain">Checkout expenses</string>
+    <string name="ingresoMain">Add new expense</string>
+    <string name="configuracionMain">Configuration</string>
 </resources>
