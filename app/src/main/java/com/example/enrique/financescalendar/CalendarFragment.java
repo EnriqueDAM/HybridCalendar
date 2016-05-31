@@ -4,19 +4,21 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.DatePicker;
-import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class CalendarFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
 
+
     public Calendar c;
-    public int year, month, day;
-    public TextView dateTextView;
+    public SimpleDateFormat sdf;
+    public static int year, month, day;
+    private static final String DATE_FORMAT = month + " / " + day + " / " + year;
 
 
     @Override
@@ -35,7 +37,7 @@ public class CalendarFragment extends DialogFragment
     public void onDateSet(DatePicker view, int selectedYear, int selectedMonth, int selectedDay) {
         // Do something with the time chosen by the user
         year = selectedYear;
-        month = selectedMonth;
+        month = selectedMonth + 1;
         day = selectedDay;
 
         setDate();
@@ -43,11 +45,23 @@ public class CalendarFragment extends DialogFragment
     }
 
     private void setDate() {
-        LayoutInflater li = LayoutInflater.from(getActivity());
-        View showView = li.inflate(R.layout.activity_calendar, null);
-        dateTextView = (TextView) showView.findViewById(R.id.text_view_date);
 
-        dateTextView.setText(month + " / " + day + " / " + year);
+
+        try {
+            CalendarActivity calendarActivity = (CalendarActivity) getActivity();
+
+            sdf = new SimpleDateFormat("MM / dd / yyyy");
+            String dateStr = DATE_FORMAT;
+            Date dateObj = sdf.parse(dateStr);
+            String newDate = sdf.format(dateObj);
+
+            calendarActivity.dateTextView.setText(newDate);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
 }

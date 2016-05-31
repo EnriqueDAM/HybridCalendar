@@ -5,28 +5,88 @@
     android:layout_height="match_parent"
     tools:context=".CalendarActivity">
 
-    <TextView
-        android:id="@+id/text_view_date"
+    <LinearLayout
+        android:id="@+id/linear_layout_money"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="@dimen/options_dialog_margin_top"/>
+        android:layout_centerVertical="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_view_date"
+            android:layout_weight="4.25"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/date_text_size"
+            android:paddingTop="@dimen/date_padding_top"
+            android:textAlignment="center"
+            android:layout_marginTop="@dimen/options_dialog_margin_top"/>
+
+        <Button
+            android:id="@+id/btn_change_date"
+            android:layout_weight="0.75"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/btn_change_date"
+            android:layout_marginTop="@dimen/options_dialog_margin_top"
+            android:onClick="showDatePickerDialog"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/cal_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/linear_layout_money"
+        android:layout_margin="@dimen/calendar_image_margin"
+        android:src="@drawable/cal"/>
 
     <EditText
         android:id="@+id/edit_text_add_money"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="number"
+        android:maxLength="3"
         android:hint="@string/quantity"
-        android:layout_below="@id/text_view_date"
+        android:layout_below="@id/linear_layout_money"
         android:layout_marginTop="@dimen/options_dialog_margin_top"/>
 
     <EditText
         android:id="@+id/edit_text_description"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:maxLength="140"
         android:hint="@string/description"
         android:layout_below="@id/edit_text_add_money"
         android:layout_marginTop="@dimen/options_dialog_margin_top"/>
+
+    <LinearLayout
+        android:id="@+id/linear_layout_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_save_data"
+            android:layout_weight="2.5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/btn_save_data"
+            android:layout_marginTop="@dimen/options_dialog_margin_top"
+            android:onClick="sendDataToDB"/>
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_weight="2.5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/btn_cancel"
+            android:layout_marginTop="@dimen/options_dialog_margin_top"
+            android:onClick="onBackPressed"/>
+
+
+    </LinearLayout>
 
 </RelativeLayout>

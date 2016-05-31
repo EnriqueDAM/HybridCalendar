@@ -10,4 +10,7 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
     <dimen name="options_dialog_margin_top">5dp</dimen>
+    <dimen name="calendar_image_margin">20dp</dimen>
+    <dimen name="date_text_size">18sp</dimen>
+    <dimen name="date_padding_top">15dp</dimen>
 </resources>
